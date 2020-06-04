@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Desafio Estágio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <br><br>
+  <h2>Editar funcionário</h2>
+  <form action="#"
+  th:action="@{/user/update}"
+  th:object="${user}"
+  method="post">
+
+    <div class="form-group">
+    	<label for="id">ID:</label>
+	    <input type="text" class="form-control" th:field="*{id}" id="id" placeholder="ID" readonly="true">
+	    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </div>
+    <div class="form-group">
+		<label for="name">Nome:</label>
+	    <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Nome">
+	    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </div>
+    <div class="form-group">
+    	<label for="cpf">CPF:</label>
+    	<input type="text" class="form-control" th:field="*{cpf}" id="cpf" placeholder="CPF">
+    	<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+    </div>
+    <div class="form-group">
+		<label for="birthDate">Data de Nascimento:</label>
+    	<input type="date" class="form-control" th:field="*{birthDate}" id="birthDate" placeholder="Data de Nascimento">
+    	<span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span>
+    </div>
+    <div class="form-group">
+		<label for="idRole">Código do Cargo:</label>
+		<select class="form-control" id="idRole" name="idRole">
+    		<option th:each="role: ${roles}"
+    				th:value="${role.idRole}"
+					th:text="${role.role}"
+					th:selected="${{role.idRole}} == ${{user.idRole}}">
+    		</option>
+    	</select>
+    	<!-- <input type="text" class="form-control" th:field="*{idRole}" id="idRole" placeholder="Código da Função"> -->
+    	<span th:if="${#fields.hasErrors('idRole')}" th:errors="*{idRole}"></span>
+    </div>
+    <div class="form-group">
+	    <label for="idProfile">Código do Perfil:</label>
+	    <select class="form-control" id="idProfile" name="idProfile">
+    		<option th:each="profile: ${profiles}"
+    				th:value="${profile.idProfile}"
+					th:text="${profile.profile}">
+    		</option>
+    	</select>
+	    <!-- <input type="text" class="form-control" th:field="*{idProfile}" id="idProfile" placeholder="Código do Perfil"> -->
+	    <span th:if="${#fields.hasErrors('idProfile')}" th:errors="*{idProfile}"></span>
+    </div>
+    <button type="submit" class="btn btn-warning">Atualizar Usuário</button>
+  </form>
+  <br><br>
+  <a href="/user/list"><button type="button" class="btn btn-primary btn-sm">Voltar</button></a>
+  <br><br>
+</div>
+<script>
+	$(document).ready(function () {
+		var $seuCampoCpf = $("#cpf");
+		$seuCampoCpf.mask('000.000.000-00', {reverse: true});
+    });
+</script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Desafio - Update</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<form action="#"
+  th:action="@{/user/update}"
+  th:object="${user}"
+  method="post">
+  	
+	  <label for="name">ID</label>
+	    <input type="text" th:field="*{id}" id="id" placeholder="ID">
+  	
+    <label for="name">Nome</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Nome">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    
+    <label for="cpf">CPF</label>
+    <input type="text" th:field="*{cpf}" id="cpf" placeholder="CPF">
+    <span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+    
+    <label for="cpf">Data de Nascimento</label>
+    <input type="date" th:field="*{birthDate}" id="birthDate" placeholder="Data de Nascimento">
+    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span>
+    
+    <label for="idRole">Código do Cargo</label>
+    <input type="text" th:field="*{idRole}" id="idRole" placeholder="Código da Função">
+    <span th:if="${#fields.hasErrors('idRole')}" th:errors="*{idRole}"></span>
+    
+    <label for="idProfile">Código do Perfil</label>
+    <input type="text" th:field="*{idProfile}" id="idProfile" placeholder="Código do Perfil">
+    <span th:if="${#fields.hasErrors('idProfile')}" th:errors="*{idProfile}"></span>
+        
+    <input type="submit" value="Atualizar Usuário">   
+</form>
+</html> -->
