@@ -56,7 +56,7 @@ public class UserDetailController {
 		
 		User user = new User();
 		user.setName(name);
-		user.setCpf(cpf);
+		user.setCpf(cpf.replaceAll("[.-]", ""));
 		user.setBirthDate(birthDate);
 		user.setIdRole(idRole);
 		user.setIdProfile(idProfile);
@@ -106,7 +106,7 @@ public class UserDetailController {
 		
 		User user  = new User();
 		user.setName(name);
-		user.setCpf(cpf);
+		user.setCpf(cpf.replaceAll("[.-]", ""));
 		user.setBirthDate(birthDate);
 		user.setIdRole(idRole);		
 		user.setIdProfile(idProfile);

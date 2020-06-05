@@ -21,7 +21,7 @@ CREATE TABLE profiles
 CREATE TABLE users (
     id_user			INTEGER 	NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name			VARCHAR(50)	NOT NULL,
-    cpf				VARCHAR(14)	NOT NULL UNIQUE,
+    cpf				VARCHAR(11)	NOT NULL UNIQUE,
     birth_date		DATE		NOT NULL,
     id_role 		INTEGER		NOT NULL,
     CONSTRAINT 		fk_id_role FOREIGN KEY (id_role) REFERENCES roles (id_role),

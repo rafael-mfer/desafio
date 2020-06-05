@@ -63,7 +63,7 @@
 	    <!-- <input type="text" class="form-control" th:field="*{idProfile}" id="idProfile" placeholder="Código do Perfil"> -->
 	    <span th:if="${#fields.hasErrors('idProfile')}" th:errors="*{idProfile}"></span>
     </div>
-    <button type="submit" class="btn btn-warning">Atualizar Usuário</button>
+    <button type="submit" class="btn btn-warning">Atualizar Funcionário</button>
   </form>
   <br><br>
   <a href="/user/list"><button type="button" class="btn btn-primary btn-sm">Voltar</button></a>
@@ -77,45 +77,3 @@
 </script>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Desafio - Update</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
-<form action="#"
-  th:action="@{/user/update}"
-  th:object="${user}"
-  method="post">
-  	
-	  <label for="name">ID</label>
-	    <input type="text" th:field="*{id}" id="id" placeholder="ID">
-  	
-    <label for="name">Nome</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Nome">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-    
-    <label for="cpf">CPF</label>
-    <input type="text" th:field="*{cpf}" id="cpf" placeholder="CPF">
-    <span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
-    
-    <label for="cpf">Data de Nascimento</label>
-    <input type="date" th:field="*{birthDate}" id="birthDate" placeholder="Data de Nascimento">
-    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span>
-    
-    <label for="idRole">Código do Cargo</label>
-    <input type="text" th:field="*{idRole}" id="idRole" placeholder="Código da Função">
-    <span th:if="${#fields.hasErrors('idRole')}" th:errors="*{idRole}"></span>
-    
-    <label for="idProfile">Código do Perfil</label>
-    <input type="text" th:field="*{idProfile}" id="idProfile" placeholder="Código do Perfil">
-    <span th:if="${#fields.hasErrors('idProfile')}" th:errors="*{idProfile}"></span>
-        
-    <input type="submit" value="Atualizar Usuário">   
-</form>
-</html> -->
